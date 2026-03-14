@@ -106,7 +106,7 @@ for msg in st.session_state.messages:
     if msg["role"] == "user":
         st.markdown(f'<div class="bubble-label" style="text-align:right">You</div><div class="user-bubble">{msg["text"]}</div>', unsafe_allow_html=True)
     else:
-        # ✅ Show correction notice if spelling was fixed
+        #  Show correction notice if spelling was fixed
         if msg.get("corrected"):
             st.markdown(f'<div class="correction-tag">✏️ Did you mean: <b>{msg["corrected"]}</b>?</div>', unsafe_allow_html=True)
         st.markdown(f'<div class="bubble-label">🤖 Bot</div><div class="bot-bubble">{msg["text"]}</div>', unsafe_allow_html=True)
@@ -133,7 +133,7 @@ if send and user_input.strip():
     st.session_state.messages.append({
         "role": "bot",
         "text": response,
-        "corrected": corrected if was_corrected else None  # ✅ show yellow tag if typo
+        "corrected": corrected if was_corrected else None  #  show yellow tag if typo
     })
     st.rerun()
 
