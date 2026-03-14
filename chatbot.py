@@ -34,11 +34,11 @@ GREETINGS = {
 def detect_greeting(text: str):
     text_clean = re.sub(r"[^\w\s]", "", text.lower().strip())
 
-    # ✅ Exact match first
+    #  Exact match first
     if text_clean in GREETINGS:
         return GREETINGS[text_clean]
 
-    # ✅ Fuzzy match on greeting keys (handles typos like "helo", "hii", "thaks")
+    #  Fuzzy match on greeting keys (handles typos like "helo", "hii", "thaks")
     result = process.extractOne(
         text_clean,
         GREETINGS.keys(),
